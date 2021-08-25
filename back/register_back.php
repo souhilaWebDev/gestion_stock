@@ -15,7 +15,7 @@
                 'id' => NULL,
                 'nom' => $nom,
                 'login' => $login,
-                'pwd' => $pwd,
+                'pwd' => password_hash($pwd, PASSWORD_DEFAULT),
                 'role' => 'user',
                 'status' => 1,
             ];

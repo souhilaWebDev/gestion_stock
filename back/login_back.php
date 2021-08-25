@@ -1,27 +1,76 @@
 <?php
     if(isset($_POST['submit'])){
-        if(
-            isset($_POST['login']) and !empty($_POST['login']) &&
-            isset($_POST['pwd']) and !empty($_POST['pwd'])
-        ){
-            $login = $_POST['login'];
-            $pwd = $_POST['pwd'];
+
+        $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_STRING);
+        $input_pwd = filter_input(INPUT_POST, 'pwd', FILTER_SANITIZE_STRING);
+
+        if($login !== '' && $input_pwd !== '') {
             
-            $job = $bdd->prepare('SELECT * FROM users WHERE login = :login AND pwd = :pwd  LIMIT 1');
-            $job->execute([
-                ':login' => $login, 
-                ':pwd' => $pwd
-            ]);
-            //recuperation des donnees
-            if ($job->rowCount() === 1) 
             {
-                list($id ,$nom ,$loginr, , $role) = $job->fetch();
-                $_SESSION['user_id'] = $id;
-                $_SESSION['nom'] = $nom;
-                $_SESSION['login'] = $loginr ;
-                $_SESSION['role'] = $role ;
-                $_SESSION['connexion'] = 'oui';
-                header('Location: dashboard.php'); 
+                // $tel = filter_input(INPUT_POST, 'tel', FILTER_SANITIZE_STRING, [
+                //     'regexp' => '/^0([0-9]{9})$/'
+                // ]);
+                // $age = filter_input(INPUT_POST, 'age', FILTER_VALIDATE_INT, [
+                //     'default' => 0,
+                //     'min' => 18,
+                //     'max' => 62
+                // ]);
+    
+                // $inputs = (object) filter_input_array(INPUT_POST, [
+                //     'login' => [
+                //         'filter' => FILTER_SANITIZE_STRING
+                //     ],
+                //     'pwd' => [
+                //         'filter' => FILTER_SANITIZE_STRING
+                //     ],
+                //     'tel' => [
+                //         'filter' => FILTER_SANITIZE_STRING,
+                //         'options' => [
+                //             'regexp' => '/^0([0-9]{9})$/'
+                //         ]
+                //     ],
+                //     'age' => [
+                //         'filter' => FILTER_VALIDATE_INT,
+                //         'options' => [
+                //             'default' => 0,
+                //             'min' => 18,
+                //             'max' => 62
+                //         ]
+                //     ]
+                // ]);
+    
+                // if ($inputs->login !== '' and $inputs->pwd !== '' and $inputs->age !== false) {
+    
+                // } else {
+                //     echo 'Erreur de données !';
+                // }
+            }
+            
+            $job = $bdd->prepare('
+                SELECT id, nom, pwd, role
+                FROM users 
+                WHERE BINARY login = :login
+                LIMIT 1
+            ');
+
+            $job->execute([
+                ':login' => $login
+            ]);
+
+            //recuperation des donnees
+            if ($job->rowCount() === 1)
+            {
+                list($id ,$nom ,$pwd, $role) = $job->fetch();
+
+                if (password_verify($input_pwd, $pwd)) {
+                    $_SESSION['user_id']   = $id;
+                    $_SESSION['nom']       = $nom;
+                    $_SESSION['role']      = $role;
+                    $_SESSION['connexion'] = 'oui';
+                    header('Location: dashboard.php'); 
+                } else {
+                    $msg = 'failed authentification'; 
+                }
             }else{
                 $msg = 'failed authentification'; 
             }
