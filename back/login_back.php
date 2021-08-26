@@ -1,10 +1,13 @@
 <?php
     if(isset($_POST['submit'])){
 
-        $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_STRING);
+        // $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_STRING);
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $input_pwd = filter_input(INPUT_POST, 'pwd', FILTER_SANITIZE_STRING);
-
-        if($login !== '' && $input_pwd !== '') {
+// var_dump($email);
+// var_dump($input_pwd);
+// die();
+        if($email !== '' && $input_pwd !== '') {
             
             {
                 // $tel = filter_input(INPUT_POST, 'tel', FILTER_SANITIZE_STRING, [
@@ -49,12 +52,13 @@
             $job = $bdd->prepare('
                 SELECT id, nom, pwd, role
                 FROM users 
-                WHERE BINARY login = :login
+                WHERE email = :email
                 LIMIT 1
-            ');
-
+                ');
+                // WHERE BINARY login = :login
+                
             $job->execute([
-                ':login' => $login
+                ':email' => $email
             ]);
 
             //recuperation des donnees

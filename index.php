@@ -52,19 +52,19 @@
                 Login Form
               </h1>
               <form method="POST">
-              <div class="alert" style="color: red;">
-                <?= $_SESSION['msg'] ?? '' ?>
-              </div>  
-              <div class="alert" style="color: red;">
-                <?= $msg ?? '' ?>
-              </div>                                
+                <div class="alert" style="color: red;">
+                  <?= $_SESSION['msg'] ?? '' ?>
+                </div>  
+                <div class="alert" style="color: red;">
+                  <?= $msg ?? '' ?>
+                </div>
                   <label class="block text-sm">
-                    <span class="text-gray-700 dark:text-gray-400">Login</span>
+                    <span class="text-gray-700 dark:text-gray-400">Email</span>
                     <input
                       class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                      name="login"
-                      type="text"
-                      placeholder="your login"
+                      placeholder="admin@admin.com"
+                      name="email"
+                      type="email"
                       required
                     />
                   </label>
@@ -75,6 +75,7 @@
                     placeholder="***************"
                     name="pwd"
                     type="password"
+                    required
                     />
                   </label>
                   <input type="submit" name="submit" value="Log in" class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
@@ -82,12 +83,7 @@
                 <hr class="my-8" />
 
                 <p class="mt-1">
-                  <a
-                    class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-                    href="register.php"
-                  >
-                    Register
-                  </a>
+                  <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="register.php">Register</a>
                 </p>
               </div>
             </div>

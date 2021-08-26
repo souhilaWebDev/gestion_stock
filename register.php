@@ -58,15 +58,20 @@
                           class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                           name="nom"
                           placeholder="your name"
+                          value="<?=$nom ?? ''?>"
+                          required
                         />
                       </label>
 
                       <label class="block text-sm">
-                        <span class="text-gray-700 dark:text-gray-400">Login</span>
+                        <span class="text-gray-700 dark:text-gray-400">Email</span>
                         <input
                           class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                          name="login"
-                          placeholder="your login"
+                          placeholder="admin@admin.com"
+                          name="email"
+                          type="email"
+                          value="<?=$email ?? '' ?>"
+                          required
                         />
                       </label>
 
@@ -77,6 +82,7 @@
                           placeholder="**************"
                           name="pwd"
                           type="password"
+                          required
                         />
                       </label>
                       <label class="block mt-4 text-sm">
@@ -88,6 +94,7 @@
                           placeholder="***************"
                           name="cpwd"
                           type="password"
+                          required
                         />
                       </label>
 
