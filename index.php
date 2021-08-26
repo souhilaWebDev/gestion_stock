@@ -3,6 +3,7 @@
  
   if(is_connected()){
     header('Location: dashboard.php');
+    exit;
   }else{
     require 'back/login_back.php';
       // header('Location: login.php');

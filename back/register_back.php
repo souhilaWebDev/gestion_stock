@@ -1,15 +1,26 @@
 <?php
-    if(isset($_POST['register'])){
+    if(isset($_POST['register'])) {
+
         $inputs = (object) filter_input_array(INPUT_POST, [
+            // 'nom' => [
+            //     'filter' => FILTER_VALIDATE_REGEXP,
+            //     'options' => [
+            //         'regexp' => '/^[a-z ]{5,20}$/i'
+            //     ]
+            // ],
             'nom' => [
-                'filter' => FILTER_SANITIZE_STRING,
-                'options' => [
-                    'min' => 3,
-                    'max' => 20
-                ]
+                'filter' => FILTER_CALLBACK,
+                'options' => function ($value) {
+                    $len = strlen($value);
+                    if ($len >= 5 and $len <= 20) {
+                        return filter_var($value, FILTER_SANITIZE_STRING);
+                    } else {
+                        return false;
+                    }
+                }
             ],
             'email' => [
-                'filter' => FILTER_SANITIZE_EMAIL,
+                'filter' => FILTER_VALIDATE_EMAIL,
                 'options' => [
                     'min' => 3
                 ]
