@@ -1,7 +1,7 @@
 <?php 
-function is_connected(){
-    return(($_SESSION['connexion'] ?? '' ) === 'oui');
-}
+    function is_connected(){
+        return(($_SESSION['connexion'] ?? '' ) === 'oui');
+    }
 
 function disconnected(){
     // if(($_SESSION['connexion'] ?? '' ) === 'oui'){
