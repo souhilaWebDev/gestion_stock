@@ -1,0 +1,15 @@
+insert into produits (designation, id_categorie, description, qtt, prix) values ('Dangerous Liaisons', 1, 'Ruling Class, The', 92, 275);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('Marooned', 5, 'Daughters of Dolma', 75, 122);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('Vitelloni, I (a.k.a. The Young and the Passionate)', 1, 'Wanderers', 69, 250);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('Overbrook Brothers, The', 2, 'Loulou', 6, 314);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('Winnetou: The Last Shot', 3, 'When a Stranger Calls', 81, 329);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('I Am Legend', 4, 'Hundred-Foot Journey, The', 14, 251);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('Something in the Wind', 4, 'Some Like It Hot', 70, 63);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('Floating Weeds (Ukigusa)', 5, 'Great Happiness Space, The: Tale of an Osaka Love Thief', 36, 31);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('Berlin Express', 2, 'Jimmy Neutron: Boy Genius', 42, 285);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('Jimmy Rosenberg: The Father, the Son & the Talent', 3, 'Focus', 32, 117);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('From the Life of the Marionettes (Aus dem Leben der Marionetten) ', 5, 'Questo piccolo grande amore', 4, 142);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('Case of the Whitechapel Vampire, The', 2, 'Old San Francisco', 88, 77);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('Terminator, The', 3, 'Omen IV: The Awakening', 5, 272);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('Devil''s Eye, The (Djävulens öga)', 1, 'After Five in the Jungle (Nach Fünf im Urwald)', 62, 173);
+insert into produits (designation, id_categorie, description, qtt, prix) values ('Space Cowboys', 2, 'Redacted', 97, 208);
