@@ -4,10 +4,10 @@
     if(is_connected()){
 ?>
         <!-- sidebare menu -->
-        <?php include"includes/sidebar.php"; ?>
+        <?php include "includes/sidebar.php"; ?>
         <!-- end sidebar menu  -->
         <!-- header  -->
-        <?php include"includes/header.php"; ?>
+        <?php include "includes/header.php"; ?>
         <!-- end header -->
                 
         <!-- title page  -->

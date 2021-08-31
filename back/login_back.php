@@ -71,7 +71,7 @@
                     $_SESSION['nom']       = $nom;
                     $_SESSION['role']      = $role;
                     $_SESSION['connexion'] = 'oui';
-                    header('Location: dashboard.php'); 
+                    header('Location: ' . URL);
                 } else {
                     $msg = 'failed authentification'; 
                 }

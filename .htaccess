@@ -1,0 +1,5 @@
+options -indexes
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !\.(png|jpg|css|js|eot|ttf|woff|woff2|ico|jpeg|gif)$
+RewriteRule . index.php [QSA,L]
