@@ -6,7 +6,7 @@
                     '/',
                     trim(
                         str_replace(
-                            ['index.php','/myStructure'],
+                            ['index.php','/gestion_stock_php'],
                             '',
                             $_SERVER['REQUEST_URI']
                         ),

@@ -1,5 +1,5 @@
 <?php
-    define('URL','http://localhost/myStructure');
+    define('URL','http://localhost/gestion_stock_php');
 
     session_start();
     try {
