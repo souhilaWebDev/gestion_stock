@@ -1,5 +1,4 @@
 <?php
-
     // $host = 'localhost';
     // $db = 'gestion_stock';
     // $user = 'root';
