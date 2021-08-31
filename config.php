@@ -1,10 +1,6 @@
 <?php
+    define('URL','http://localhost/myStructure');
 
-    // $host = 'localhost';
-    // $db = 'gestion_stock';
-    // $user = 'root';
-    // $password = '';
-    // PDO uses a data source name (DSN) : 
     session_start();
     try {
         $bdd = new PDO('mysql:host=localhost;dbname=gestion_stock', 'root', '');
@@ -12,11 +8,12 @@
         die("erreur technique : ");
         // die("erreur technique : " . $e->getMessage());
     }
-
-    // if($bdd){
-    //     $_SESSION['connexion'] = 'oui';
-    // }
-    require 'functions.php';
+    
+    function is_connected(){
+        return(($_SESSION['connexion'] ?? '' ) === 'oui');
+    }
+    
+    // require 'tools/functions.php';
 
 
 

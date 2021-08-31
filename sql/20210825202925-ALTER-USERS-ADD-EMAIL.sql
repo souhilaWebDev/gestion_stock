@@ -1,1 +1,0 @@
-ALTER TABLE `users` ADD `email` VARCHAR(80) NOT NULL AFTER `nom`, ADD INDEX (`email`);

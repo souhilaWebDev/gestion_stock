@@ -1,12 +1,11 @@
 <?php
+echo'login';
+die();
     if(isset($_POST['submit'])){
 
-        // $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_STRING);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $input_pwd = filter_input(INPUT_POST, 'pwd', FILTER_SANITIZE_STRING);
-// var_dump($email);
-// var_dump($input_pwd);
-// die();
+
         if($email !== '' && $input_pwd !== '') {
             
             {

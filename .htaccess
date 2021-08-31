@@ -1,0 +1,11 @@
+options -indexes
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(woff|woff2|ttc|otf|font.css)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !\.(svg|png|jpg|css|js|eot|ttf|woff|woff2|ico|jpeg|gif)$
+RewriteRule . index.php [QSA,L]
