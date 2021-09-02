@@ -1,11 +1,4 @@
-<?php
-  require 'app/tools/config.php';
-  
-  if(is_connected()){
-    header('Location: dashboard.php');
-  }else{
-    require 'app/back/home/register_back.php';
-  ?>
+<?php require 'app/back/home/register_back.php'; ?>
     <!DOCTYPE html>
     <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
       <head>
@@ -119,4 +112,3 @@
         </div>
       </body>
     </html>
-<?php } ?>
