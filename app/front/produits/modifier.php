@@ -1,13 +1,13 @@
 <?php
-  require 'back/config.php';
+  require 'app/tools/config.php';
   
   if(is_connected()){
 ?>
       <!-- sidebare menu -->
-      <?php include 'includes/sidebar.php'; ?>
+      <?php include 'app/front/includes/sidebar.php'; ?>
       <!-- end sidebar menu  -->
       <!-- header  -->
-      <?php include 'includes/header.php'; ?>
+      <?php include 'app/front/includes/header.php'; ?>
       <!-- end header -->             
       <!-- debut main  -->
       <div class="container px-6 mx-auto grid">
@@ -153,7 +153,7 @@
         </div>
               <!-- end main  -->
             <!-- footer  -->
-            <?php include 'includes/footer.php'; ?>
+            <?php include 'app/front/includes/footer.php'; ?>
             <!-- end footer -->
 <?php
   }else{

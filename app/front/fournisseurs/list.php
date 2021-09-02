@@ -1,20 +1,20 @@
 <?php
-  require 'back/config.php';
+  require 'app/tools/config.php';
   
   if(is_connected()){
 ?>
       <!-- sidebare menu -->
-      <?php include 'includes/sidebar.php'; ?>
+      <?php include 'app/front/includes/sidebar.php'; ?>
       <!-- end sidebar menu  -->
       <!-- header  -->
-      <?php include 'includes/header.php'; ?>
+      <?php include 'app/front/includes/header.php'; ?>
       <!-- end header -->             
       <!-- debut main  -->
       <div class="container px-6 mx-auto grid">
     
         <!-- title page  -->
         <h2 class="mt-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                Liste of products :
+                Liste of Providers :
         </h2>
 
             <div class="px-3 my-6">
@@ -26,61 +26,54 @@
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
             
 <?php 
-
           $package = $bdd->query(
-          'SELECT *, 
-                    (
-                     SELECT designation 
-                     FROM categories 
-                     WHERE id = produits.id_categorie 
-                    ) as cat 
-          FROM produits'
+            'SELECT * FROM fournisseurs'
           );
-
+          
           if ($package->rowCount() < 1){
-
-              echo"<div class='px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800'>
-                      <p class='text-sm text-gray-600 dark:text-gray-400'>
-                        there is no products !
-                      </p>
-                  </div>";
-
+            
+            echo"<div class='px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800'>
+            <p class='text-sm text-gray-600 dark:text-gray-400'>
+            there is no products !
+            </p>
+            </div>";
+            
           }else{
-    ?>
+            ?>
             <div class="w-full overflow-x-auto">
               <table class="w-full whitespace-no-wrap">
-                <thead>
+                <thead> 
                   <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                     <th class="px-4 py-3">ID</th>
-                    <th class="px-4 py-3">Designation</th>
-                    <th class="px-4 py-3">Category</th>
-                    <th class="px-4 py-3">Description</th>
-                    <th class="px-4 py-3">Quantity</th>
+                    <th class="px-4 py-3">full Name</th>
+                    <th class="px-4 py-3">Addresse</th>
+                    <th class="px-4 py-3">Phone N°</th>
+                    <th class="px-4 py-3">State</th>
                     <th class="px-4 py-3">Status</th>
                     <th class="px-4 py-3">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-    <?php
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                  <?php
                       // while ($product = (object) $package->fetch())
-              while (list($id, $designation, $id_categorie,$description ,$qtt, , $status,$cat ) = $package->fetch())
-              {
-    ?> 
+                      while (list($id, $nom, $adresse,$tel ,$wilaya,$status) = $package->fetch())
+                      {
+                        ?> 
                       <tr class="text-gray-700 dark:text-gray-400">
                           <td class="px-4 py-3">
                             <?= $id ?>
                           </td>
                           <td class="px-4 py-3">
-                            <?= substr($designation,0,15).'...' ?>
+                            <?=  $nom ?>
                           </td>
                           <td class="px-4 py-3">
-                            <?= $cat ?>
+                            <?= $adresse ?>
                           </td>
                           <td class="px-4 py-3">
-                            <?=substr($description,0,15).'...' ?>
+                            <?= $wilaya ?>
                           </td>
                           <td class="px-4 py-3">
-                            <?= $qtt ?>
+                            <?= $tel ?>
                           </td>
 
                           <td class="px-4 py-3 text-xs">
@@ -178,7 +171,7 @@
                 </div>
               <!-- end main  -->
             <!-- footer  -->
-            <?php include 'includes/footer.php'; ?>
+            <?php include 'app/front/includes/footer.php'; ?>
             <!-- end footer -->
     <?php
         }else{

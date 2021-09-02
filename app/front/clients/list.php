@@ -1,20 +1,20 @@
 <?php
-  require 'back/config.php';
+  require 'app/tools/config.php';
   
   if(is_connected()){
 ?>
       <!-- sidebare menu -->
-      <?php include 'includes/sidebar.php'; ?>
+      <?php include 'app/front/includes/sidebar.php'; ?>
       <!-- end sidebar menu  -->
       <!-- header  -->
-      <?php include 'includes/header.php'; ?>
+      <?php include 'app/front/includes/header.php'; ?>
       <!-- end header -->             
       <!-- debut main  -->
       <div class="container px-6 mx-auto grid">
     
         <!-- title page  -->
         <h2 class="mt-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                Liste of Providers :
+                Liste of Clients :
         </h2>
 
             <div class="px-3 my-6">
@@ -27,7 +27,7 @@
             
 <?php 
           $package = $bdd->query(
-            'SELECT * FROM fournisseurs'
+            'SELECT * FROM clients'
           );
           
           if ($package->rowCount() < 1){
@@ -42,7 +42,7 @@
             ?>
             <div class="w-full overflow-x-auto">
               <table class="w-full whitespace-no-wrap">
-                <thead> 
+                <thead>
                   <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                     <th class="px-4 py-3">ID</th>
                     <th class="px-4 py-3">full Name</th>
@@ -56,7 +56,7 @@
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                   <?php
                       // while ($product = (object) $package->fetch())
-                      while (list($id, $nom, $adresse,$tel ,$wilaya,$status) = $package->fetch())
+                      while (list($id, $nom,$prenom, $adresse,$tel ,$wilaya,$status) = $package->fetch())
                       {
                         ?> 
                       <tr class="text-gray-700 dark:text-gray-400">
@@ -64,7 +64,7 @@
                             <?= $id ?>
                           </td>
                           <td class="px-4 py-3">
-                            <?=  $nom ?>
+                            <?=  $nom.' '.$prenom ?>
                           </td>
                           <td class="px-4 py-3">
                             <?= $adresse ?>
@@ -171,7 +171,7 @@
                 </div>
               <!-- end main  -->
             <!-- footer  -->
-            <?php include 'includes/footer.php'; ?>
+            <?php include 'app/front/includes/footer.php'; ?>
             <!-- end footer -->
     <?php
         }else{

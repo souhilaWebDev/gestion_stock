@@ -15,7 +15,7 @@
     // if($bdd){
     //     $_SESSION['connexion'] = 'oui';
     // }
-    require 'functions.php';
+    require 'app/tools/functions.php';
 
 
 

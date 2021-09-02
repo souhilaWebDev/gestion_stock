@@ -1,11 +1,11 @@
 <?php
-  require 'back/config.php';
+  require 'app/tools/config.php';
  
   if(is_connected()){
-    header('Location: ' . URL . '/dashboard');
+    header('Location: ' . URL . '/home/dashboard');
     exit;
   }else{
-    require 'back/login_back.php';
+    require 'app/back/home/login_back.php';
   ?>
   <!DOCTYPE html>
   <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
@@ -17,7 +17,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
       /> -->
-      <link rel="stylesheet" href="assets/css/tailwind.output.css" />
+      <link rel="stylesheet" href="<?= URL ?>/app/assets/css/tailwind.output.css" />
       <!-- <script
         src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
         defer
@@ -34,13 +34,13 @@
               <img
                 aria-hidden="true"
                 class="object-cover w-full h-full dark:hidden"
-                src="assets/img/login-office.jpeg"
+                src="<?= URL ?>/app/assets/img/login-office.jpeg"
                 alt="Office"
               />
               <img
                 aria-hidden="true"
                 class="hidden object-cover w-full h-full dark:block"
-                src="assets/img/login-office-dark.jpeg"
+                src="<?= URL ?>/app/assets/img/login-office-dark.jpeg"
                 alt="Office"
               />
             </div>
@@ -83,7 +83,7 @@
                 <hr class="my-8" />
 
                 <p class="mt-1">
-                  <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="<?= URL ?>/register">Register</a>
+                  <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="<?= URL ?>/home/register">Register</a>
                 </p>
               </div>
             </div>
