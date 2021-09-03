@@ -1,7 +1,7 @@
 <?php
-    define('PROJET', 'gestion_stock_php');
-    // define('PROJET', 'souhila');
-    define('URL', 'http://localhost/' . PROJET);
+    // define('PROJET', 'gestion_stock_php');
+    define('PROJET', 'souhila');
+    define('URL', 'http://127.0.0.1/' . PROJET);
     define('APP', '/wamp64/www/' . PROJET);
     
     require 'app/tools/config.php';
@@ -53,7 +53,11 @@
         // die();
     }
 
-    $page = 'app/front/' . $doss .'/'.$action. '.php';
+    if (isset($_GET['test'])) {
+        $page = 'app/coordinators/' . $doss .'/'.$action. '.php';
+    } else {
+        $page = 'app/front/' . $doss .'/'.$action. '.php';
+    }
 
     if (file_exists($page)) {
         require $page;
