@@ -1,6 +1,6 @@
 <?php
-    // define('PROJET', 'gestion_stock_php');
-    define('PROJET', 'souhila');
+    define('PROJET', 'gestion_stock_php');
+    // define('PROJET', 'souhila');
     define('URL', 'http://localhost/' . PROJET);
     define('APP', '/wamp64/www/' . PROJET);
     
@@ -27,6 +27,7 @@
     list($route) = explode('?', $url);
     
     $request = explode('/', $route);
+    // if $request[0] isset take it else 'home' then if === ''
     $doss    = ($request[0] ?? 'home') ?: 'home';
     $action  = ($request[1] ?? 'dashboard') ?: 'dashboard';
 
