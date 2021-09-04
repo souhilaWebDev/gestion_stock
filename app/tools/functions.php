@@ -1,6 +1,5 @@
 <?php 
-    function is_connected(){
-        // return true;
+    function is_connected() {
         return(($_SESSION['connexion'] ?? '' ) === 'oui');
     }
 

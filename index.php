@@ -37,11 +37,7 @@
         header('Location: ' . URL . '/home/dashboard');
     }
 
-    // if (isset($_GET['test'])) {
-        $page = 'app/coordinators/' . $doss .'/'.$action. '.php';
-    // } else {
-    //     $page = 'app/front/' . $doss .'/'.$action. '.php';
-    // }
+    $page = 'app/coordinators/' . $doss .'/'.$action. '.php';
 
     if (file_exists($page)) {
         require $page;

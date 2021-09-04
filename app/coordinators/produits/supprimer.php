@@ -2,7 +2,7 @@
 
     if (empty($_GET['id'])) {
     //    rediriger
-    }else{
+    } else {
 
         $id_prod =  
             str_replace(

@@ -52,8 +52,8 @@
                 FROM users 
                 WHERE email = :email
                 LIMIT 1
-                ');
-                // WHERE BINARY login = :login
+            ');
+            // WHERE BINARY login = :login
                 
             $job->execute([
                 ':email' => $email

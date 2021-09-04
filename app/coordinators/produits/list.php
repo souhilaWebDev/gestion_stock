@@ -1,12 +1,14 @@
 <?php 
 
-    $req = 'SELECT *, 
+    $req = '
+        SELECT *,
             (
                 SELECT designation 
                 FROM categories 
                 WHERE id = produits.id_categorie 
             ) as cat 
-            FROM produits';
+        FROM produits
+    ';
 
     $produits = $bdd->query($req)->fetchAll(PDO::FETCH_OBJ);
     
