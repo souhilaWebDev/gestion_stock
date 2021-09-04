@@ -1,6 +1,6 @@
 <?php
-    // define('PROJET', 'gestion_stock_php');
-    define('PROJET', 'souhila');
+    define('PROJET', 'gestion_stock_php');
+    // define('PROJET', 'souhila');
     define('URL', 'http://127.0.0.1/' . PROJET);
     define('APP', '/wamp64/www/' . PROJET);
     
@@ -37,34 +37,17 @@
         header('Location: ' . URL . '/home/dashboard');
     }
 
-    {
-        // $bool = isset($request[0]);
-        // var_dump($_SERVER['REQUEST_URI']);
-        // var_dump($url, $route);
-        // var_dump($list);
-        // var_dump($route);
-        // var_dump($params);
-        // print_r($request);
-        // var_dump($request[0]);
-        // var_dump($bool);
-        // var_dump($doss);
-        // var_dump($action);
-        // var_dump($act);
-        // die();
-    }
-
-    if (isset($_GET['test'])) {
+    // if (isset($_GET['test'])) {
         $page = 'app/coordinators/' . $doss .'/'.$action. '.php';
-    } else {
-        $page = 'app/front/' . $doss .'/'.$action. '.php';
-    }
+    // } else {
+    //     $page = 'app/front/' . $doss .'/'.$action. '.php';
+    // }
 
     if (file_exists($page)) {
         require $page;
     } else {
         header('Location: ' . URL . '/home/login');
     }
-
 
     /**
      * TODOS

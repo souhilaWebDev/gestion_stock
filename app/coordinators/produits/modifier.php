@@ -1,2 +1,6 @@
-<?php 
-  require 'app/front/clients/modifier.php'; 
+<?php
+
+include 'app/front1/includes/sidebar.php';
+include 'app/front1/includes/header.php';
+include 'app/front1/produits/modifier.php';
+include 'app/front1/includes/footer.php';
