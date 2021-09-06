@@ -125,5 +125,5 @@
         include 'app/front1/includes/footer.php';
 
     } else {
-        header('Location: ' . URL .'produit/list');
+        header('Location: ' . URL .'/produit/list');
     }
