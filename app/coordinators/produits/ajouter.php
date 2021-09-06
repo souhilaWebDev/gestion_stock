@@ -1,7 +1,7 @@
 <?php
 
     if (isset($_POST['update'])) { 
-
+        dump($_POST);
         $inputs = (object) filter_input_array(INPUT_POST, [
             'id' => [
                 'filter' => FILTER_VALIDATE_INT,
@@ -95,7 +95,7 @@
     } elseif ($id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT)) {
         
         $req1 = '
-                SELECT 
+            SELECT 
                 id,
                 designation, 
                 id_categorie, 

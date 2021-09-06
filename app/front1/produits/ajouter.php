@@ -1,5 +1,5 @@
 <h2 class="mt-6 mb-4 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-    Edit Product :
+    Add Product :
 </h2>
 <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
 
@@ -9,7 +9,7 @@
             </div>
             <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Designation</span>
-                <input type="text" name="designation" value="<?= $produit->designation ?? '' ?>"  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"/>
+                <input type="text" name="designation" value="<?= $designation ?? '' ?>"  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"/>
             </label>
 
             <label class="block mt-4 text-sm">
@@ -19,9 +19,9 @@
                 <select type="text" name="id_categorie"  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
 
                     <?php foreach ($categories as $categorie) { ?>
-                        <option value="<?= $categorie->id ?? '' ?>" <?= $categorie->id === $produit->id_categorie ? 'selected' : '' ?>
+                        <option value="<?= $id ?? '' ?>" <?= $id === $produit->id_categorie ? 'selected' : '' ?>
                         >
-                            <?= $categorie->designation ?? '' ?>
+                            <?= $designation ?? '' ?>
                         </option>
                     <?php } ?>
 

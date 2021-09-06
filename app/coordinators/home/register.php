@@ -58,7 +58,7 @@
             if ($job->rowCount() === 1) {
                 
                 $_SESSION['msg'] = 'you are registred now,log in please !';
-                header('Location: index.php');
+                header('Location: '.URL);
             
             }else{
 
