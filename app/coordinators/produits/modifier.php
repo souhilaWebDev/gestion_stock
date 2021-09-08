@@ -1,7 +1,8 @@
 <?php
 
+    $bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
     if (isset($_POST['update'])) {
-    // dump($_POST);die();
         $produit = (object) filter_input_array(INPUT_POST, [
             'id' => [
                 'filter' => FILTER_VALIDATE_INT,
@@ -68,7 +69,7 @@
                 'prix'         => $produit->prix,
                 'status'       => $produit->status
             ];
-           
+
             $req = '
                 UPDATE produits SET 
                     designation  = :designation,
@@ -80,18 +81,21 @@
                 WHERE id = :id
             ';
 
-            $job = $bdd->prepare($req);
-
-            if ($job->execute($data) and $job->rowCount() === 1) {
+            if ($job = $bdd->prepare($req) and $job->execute($data)) {
                 
-                $_SESSION['msg'] = 'successfully updated !';
+                if ($job->rowCount() === 1) {
+                    $_SESSION['msg'] = 'successfully updated !';
+                } else {
+                    $_SESSION['msg'] = 'no record updated !';
+                }
+                
                 header('Location: '. URL .'/produits/list');
                 exit;
             
             } else {
 
                 $msg = 'failed update !';
-            }        
+            }
         } else {
 
             $msg = 'please fill the fields correctly';
@@ -116,10 +120,7 @@
             'id_produit' => $id
         ];
 
-        $bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-
-        $job = $bdd->prepare($req);
-        if ($job->execute($sql_data) and $job->rowCount() === 1) {
+        if ($job = $bdd->prepare($req) and $job->execute($sql_data) and $job->rowCount() === 1) {
             $produit = $job->fetchObject();
             $produit->prix = (float) $produit->prix;
         }

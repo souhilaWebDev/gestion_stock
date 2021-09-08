@@ -39,7 +39,7 @@
       this.toastElement = null;
 
       // Validating the options
-      this.options.text = options.text || "Hi there!"; // Display message
+      this.options.text = options.text; // Display message
       this.options.node = options.node // Display content as node
       this.options.duration = options.duration === 0 ? 0 : options.duration || 3000; // Display duration
       this.options.selector = options.selector; // Parent selector

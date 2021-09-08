@@ -10,9 +10,9 @@
     <!-- alert css  -->
     <link rel="stylesheet" href="<?= URL ?>/app/assets/vendors/toastify/toastify.css">
     <!-- alert css  -->
-    <link
+    <!-- <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"/>
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"/> -->
 
     <link rel="stylesheet" href="<?= URL ?>/app/assets/css/tailwind.output.css" />
 

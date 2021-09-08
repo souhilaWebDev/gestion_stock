@@ -7,12 +7,12 @@
         Add new <span class="ml-2" aria-hidden="true">+</span>
     </a>
 </div>
-<div style="display: none;" id="msg_alert" class="alert">
-    <?php if (isset($_SESSION['msg'])) {
-        echo $_SESSION['msg'];
-        unset($_SESSION['msg']);
-    } ?>
-</div>
+
+<?php if (isset($_SESSION['msg'])) { ?>
+    <span style="display:none" id="msg_alert" class="alert">
+        <?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?>
+    </span>
+<?php } ?>
 <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
     <?php if (empty($produits)) { ?>

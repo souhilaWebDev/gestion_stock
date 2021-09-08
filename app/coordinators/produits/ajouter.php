@@ -51,7 +51,7 @@
             $produit->qtt          >=  0  &&
             $produit->prix         >=  0  &&
             $produit->status       !== null
-        ){  
+        ){
             $data = [
                 'designation'  => $produit->designation,
                 'id_categorie' => $produit->id_categorie,
@@ -63,7 +63,7 @@
 
             $req = "
                 INSERT INTO produits
-                (                  
+                (
                     designation,
                     id_categorie,
                     description,
@@ -72,7 +72,7 @@
                     status
                 )
                 VALUES
-                (                 
+                (
                     :designation,
                     :id_categorie,
                     :description,
@@ -88,6 +88,7 @@
                 
                 $_SESSION['msg'] = 'successfully added !';
                 header('Location: '. URL .'/produits/list');
+                exit;
             
             } else {
 

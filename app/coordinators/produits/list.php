@@ -8,6 +8,7 @@
                 WHERE id = produits.id_categorie 
             ) as cat 
         FROM produits
+        WHERE status != -1
     ';
 
     $produits = $bdd->query($req)->fetchAll(PDO::FETCH_OBJ);
