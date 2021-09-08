@@ -7,7 +7,7 @@
         Add new <span class="ml-2" aria-hidden="true">+</span>
     </a>
 </div>
-<div class="alert" style="color:green">
+<div style="display: none;" id="msg_alert" class="alert">
     <?php if (isset($_SESSION['msg'])) {
         echo $_SESSION['msg'];
         unset($_SESSION['msg']);
@@ -149,3 +149,20 @@
     <?php } ?>
 
 </div>
+
+
+
+<script type="text/javascript">
+// window.addEventListener('DOMContentLoaded', () => {
+//     var msgT = document.getElementById('msg_alert').textContent;
+//     Toastify({
+//         text: msgT,
+//         duration: 4000,
+//         close:true,
+//         gravity:"top",
+//         position: "right",
+//         backgroundColor: "#4fbe87",
+//         // backgroundColor: "#c20020",
+//     }).showToast();
+// });
+</script>

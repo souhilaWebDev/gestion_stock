@@ -2,36 +2,36 @@
 
     if (isset($_POST['add'])) {
 
-        $produit = (object) filter_input_array(INPUT_POST, [
+        $client = (object) filter_input_array(INPUT_POST, [
             
-            'designation' => [
+            'nom' => [
                 'filter' => FILTER_SANITIZE_STRING,
                 'options' => [
                     'default' => ''
                 ]
             ],
-            'id_categorie' => [
-                'filter' => FILTER_VALIDATE_INT,
-                'options' => [
-                    'default' => 0
-                ]
-            ],
-            'description' => [
+            'prenom' => [
                 'filter' => FILTER_SANITIZE_STRING,
                 'options' => [
                     'default' => ''
                 ]
             ],
-            'qtt' => [
+            'adresse' => [
+                'filter' => FILTER_SANITIZE_STRING,
+                'options' => [
+                    'default' => ''
+                ]
+            ],
+            'tel' => [
                 'filter' => FILTER_VALIDATE_INT,
                 'options' => [
                     'default' => 0
                 ]
             ],
-            'prix' => [
-                'filter' => FILTER_VALIDATE_FLOAT,
+            'wilaya' => [
+                'filter' => FILTER_SANITIZE_STRING,
                 'options' => [
-                    'default' => 0
+                    'default' => ''
                 ]
             ],
             'status' => [
@@ -43,39 +43,39 @@
                 ]
             ]
         ]);
-
+        // SELECT `id`, `nom`, `prenom`, `adresse`, `tel`, `wilaya`, `status` FROM `clients`
         if (
-            $produit->designation  !== '' && 
-            $produit->id_categorie >   0  &&
-            $produit->description  !== '' &&
-            $produit->qtt          >=  0  &&
-            $produit->prix         >=  0  &&
-            $produit->status       !== null
+            $client->nom     !== '' && 
+            $client->prenom  !== '' && 
+            $client->adresse !== '' && 
+            $client->tel     !== '' && 
+            $client->wilaya  !== '' &&
+            $client->status  !== null
         ){  
             $data = [
-                'designation'  => $produit->designation,
-                'id_categorie' => $produit->id_categorie,
-                'description'  => $produit->description,
-                'qtt'          => $produit->qtt,
-                'prix'         => $produit->prix,
-                'status'       => $produit->status
+                'nom'          => $client->nom,
+                'prenom' => $client->id_categorie,
+                'adresse'       => $client->wilaya,
+                'qtt'          => $client->qtt,
+                'prix'         => $client->prix,
+                'status'       => $client->status
             ];
 
             $req = "
-                INSERT INTO produits
+                INSERT INTO clients
                 (                  
-                    designation,
+                    nom,
                     id_categorie,
-                    description,
+                    wilaya,
                     qtt,
                     prix,
                     status
                 )
                 VALUES
                 (                 
-                    :designation,
+                    :nom,
                     :id_categorie,
-                    :description,
+                    :wilaya,
                     :qtt,
                     :prix,
                     :status
@@ -87,7 +87,7 @@
             if ($job->rowCount() === 1) {
                 
                 $_SESSION['msg'] = 'successfully added !';
-                header('Location: '. URL .'/produits/list');
+                header('Location: '. URL .'/clients/list');
             
             } else {
 
@@ -105,5 +105,5 @@
 
     include 'app/front1/includes/sidebar.php';
     include 'app/front1/includes/header.php';
-    include 'app/front1/produits/ajouter.php';
+    include 'app/front1/clients/ajouter.php';
     include 'app/front1/includes/footer.php';

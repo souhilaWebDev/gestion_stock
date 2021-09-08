@@ -69,4 +69,4 @@
         }
     }
 
-require 'app/front1/home/register.php';
+    require 'app/front1/home/register.php';

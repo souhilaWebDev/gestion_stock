@@ -1,7 +1,7 @@
 <?php
 
     if (isset($_POST['update'])) {
-
+    // dump($_POST);die();
         $produit = (object) filter_input_array(INPUT_POST, [
             'id' => [
                 'filter' => FILTER_VALIDATE_INT,
@@ -99,7 +99,7 @@
 
     } elseif ($id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT)) {
         
-        $req1 = '
+        $req = '
             SELECT 
                 id,
                 designation, 
@@ -118,7 +118,7 @@
 
         $bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-        $job = $bdd->prepare($req1);
+        $job = $bdd->prepare($req);
         if ($job->execute($sql_data) and $job->rowCount() === 1) {
             $produit = $job->fetchObject();
             $produit->prix = (float) $produit->prix;
@@ -129,8 +129,8 @@
         exit;
     }
 
-    $req2 = 'SELECT * FROM categories';    
-    $categories = $bdd->query($req2)->fetchAll(PDO::FETCH_OBJ);
+    $req = 'SELECT * FROM categories';    
+    $categories = $bdd->query($req)->fetchAll(PDO::FETCH_OBJ);
 
     include 'app/front1/includes/sidebar.php';
     include 'app/front1/includes/header.php';
