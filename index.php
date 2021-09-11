@@ -44,9 +44,3 @@
     } else {
         header('Location: ' . URL . '/home/login');
     }
-
-    /**
-     * TODOS
-     * -----
-     * création de la structure des controleurs
-     */

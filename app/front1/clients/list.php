@@ -8,13 +8,11 @@
             Add new<span class="ml-2" aria-hidden="true">+</span>
         </a>
     </div>
-
-    <div style="display: none;" id="msg_alert" class="alert">
-    <?php if (isset($_SESSION['msg'])) {
-        echo $_SESSION['msg'];
-        unset($_SESSION['msg']);
-    } ?>
-    </div>
+    <?php if (isset($_SESSION['msg'])) { ?>
+    <span style="display:none" id="msg_alert" class="alert">
+        <?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?>
+    </span>
+    <?php } ?>
 
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
@@ -35,8 +33,8 @@
                             <th class="px-4 py-3">ID</th>
                             <th class="px-4 py-3">full Name</th>
                             <th class="px-4 py-3">Addresse</th>
-                            <th class="px-4 py-3">Phone N°</th>
                             <th class="px-4 py-3">State</th>
+                            <th class="px-4 py-3">Phone N°</th>
                             <th class="px-4 py-3">Status</th>
                             <th class="px-4 py-3">Actions</th>
                         </tr>
@@ -56,7 +54,7 @@
                                     <?= $client->adresse ?>
                                 </td>
                                 <td class="px-4 py-3">
-                                    <?= $client->wilaya ?>
+                                    <?= Datas::$wilayas[$client->wilaya] ?? '' ?>
                                 </td>
                                 <td class="px-4 py-3">
                                     <?= $client->tel ?>
