@@ -1,8 +1,8 @@
 <?php
-    define('PROJET', 'gestion_stock_php');
-    // define('PROJET', 'souhila');
+    // define('PROJET', 'gestion_stock_php');
+    define('PROJET', 'souhila');
     define('URL', 'http://127.0.0.1/' . PROJET);
-    define('APP', '/wamp64/www/' . PROJET);
+    define('APP', './app');
     
     require 'app/tools/config.php';
 

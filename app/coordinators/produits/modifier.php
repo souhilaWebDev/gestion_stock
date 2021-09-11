@@ -126,11 +126,11 @@
         }
 
     } else {
-        header('Location: ' . URL .'produit/list');
+        header('Location: ' . URL .'/produits/list');
         exit;
     }
 
-    $req = 'SELECT * FROM categories';    
+    $req = 'SELECT * FROM categories';
     $categories = $bdd->query($req)->fetchAll(PDO::FETCH_OBJ);
 
     include 'app/front1/includes/sidebar.php';

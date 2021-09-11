@@ -3,7 +3,7 @@
     if (isset($_POST['add'])) {
 
         $client = (object) filter_input_array(INPUT_POST, [
-            
+
             'nom' => [
                 'filter' => FILTER_SANITIZE_STRING,
                 'options' => [
@@ -49,10 +49,10 @@
             $client->nom     !== '' && 
             $client->prenom  !== '' && 
             $client->adresse !== '' && 
-            preg_match("/^0[0-9]{9}$/",$client->tel) && 
+            preg_match("/^0[0-9]{9}$/", $client->tel) && 
             $client->wilaya    > 0  &&
             $client->status  !== null
-        ){  
+        ){
             $data = [
                 'nom'       => $client->nom,
                 'prenom'    => $client->prenom,
@@ -62,9 +62,9 @@
                 'status'    => $client->status
             ];
 
-            $req = "
+            $req = '
                 INSERT INTO clients
-                (                  
+                (
                     nom,
                     prenom,
                     adresse,
@@ -73,14 +73,15 @@
                     status
                 )
                 VALUES
-                (                 
+                (
                     :nom,
                     :prenom,
                     :adresse,
                     :tel,
                     :wilaya,
                     :status
-                )";
+                )
+            ';
 
             $job = $bdd->prepare($req);
             $job->execute($data);
@@ -101,7 +102,6 @@
 
     } 
     
-    include 'app/tools/classes/Datas.php';
     include 'app/front1/includes/sidebar.php';
     include 'app/front1/includes/header.php';
     include 'app/front1/clients/ajouter.php';

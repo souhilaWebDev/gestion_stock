@@ -53,7 +53,7 @@
                                 <?= substr($produit->description, 0, 15) . '...' ?>
                             </td>
                             <td class="px-4 py-3">
-                                <?= $produit->qtt ?>
+                                <?= str_pad($produit->qtt, 3, '0', STR_PAD_LEFT) ?>
                             </td>
 
                             <td class="px-4 py-3 text-xs">
