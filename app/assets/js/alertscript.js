@@ -11,3 +11,10 @@ window.addEventListener('DOMContentLoaded', () => {
         }).showToast();
     }
 });
+
+function deleteme(id,url) {
+    if(confirm('Do you want really to delete this product ?')){
+        window.location.href = ''+url+'/produits/supprimer?id='+id+'';
+        return true; 
+    }
+};

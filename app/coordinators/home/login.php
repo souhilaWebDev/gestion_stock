@@ -90,4 +90,4 @@
     // setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 }
     
-require 'app/front1/home/login.php'; 
+require 'app/front/home/login.php'; 

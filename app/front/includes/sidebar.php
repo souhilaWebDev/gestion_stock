@@ -2,28 +2,20 @@
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>gestion stock</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="<?= URL ?>/app/assets/css/tailwind.output.css" />
-    <script
-      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
-      defer
-    ></script>
-    <script src="<?= URL?>/app/assets/js/init-alpine.js"></script>
+      rel="stylesheet"/>
+    <!-- alert css  -->
+    <link rel="stylesheet" href="<?= URL ?>/app/assets/vendors/toastify/toastify.css">
+    <!-- alert css  -->
     <!-- <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
-    /> -->
-    <!-- <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
-      defer
-    ></script> -->
-    <!-- <script src="<?= URL ?>/app/assets/js/charts-lines.js" defer></script> -->
-    <!-- <script src="<?= URL ?>/app/assets/js/charts-pie.js" defer></script> -->
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"/> -->
+
+    <link rel="stylesheet" href="<?= URL ?>/app/assets/css/tailwind.output.css" />
+
   </head>
   <body>
     <div
@@ -137,6 +129,30 @@
                 <span class="ml-4">Fournisseurs</span>
               </a>
             </li>
+
+            <li class="relative px-6 py-3">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="<?= URL ?>/users/list"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+                  ></path>
+                </svg>
+                <span class="ml-4">Users</span>
+              </a>
+            </li>            
+
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"

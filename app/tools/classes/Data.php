@@ -1,5 +1,5 @@
 <?php
-    class Datas {
+    class Data {
 
         static $wilayas = array(
             1   =>  'Adrar',

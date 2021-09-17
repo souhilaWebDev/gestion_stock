@@ -1,6 +1,7 @@
 <?php 
     if(isset($_GET['page']) && !empty($_GET['page'])){
         $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
+        // dump($page);die();
     } else {
         $page = 1;
     }
@@ -10,7 +11,12 @@
     $nbrParPage = 5;
     $nbrPages   = ceil( $nbrTotal/$nbrParPage );
     $debutPage  = ( $page-1 ) * $nbrParPage;
-   
+      
+    if($page <= 0 || $page > $nbrPages){
+        header('Location: ' . URL .'/produits/list');
+        exit;
+    }
+
     $req = '
         SELECT 
             id, 
@@ -32,13 +38,9 @@
     ;
 
     $produits = $bdd->query($req)->fetchAll(PDO::FETCH_OBJ);
+ 
     
-    if($page<=0 && $page> $nbrPages){
-        header('Location: ' . URL .'produits/list');
-        exit;
-    }
-    
-    include 'app/front1/includes/sidebar.php';
-    include 'app/front1/includes/header.php';
-    include 'app/front1/produits/list.php';
-    include 'app/front1/includes/footer.php';
+    include 'app/front/includes/sidebar.php';
+    include 'app/front/includes/header.php';
+    include 'app/front/produits/list.php';
+    include 'app/front/includes/footer.php';
