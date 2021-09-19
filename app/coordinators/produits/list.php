@@ -1,21 +1,21 @@
 <?php 
-    if(isset($_GET['page']) && !empty($_GET['page'])){
+    if (isset($_GET['page']) && !empty($_GET['page'])) {
         $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
-        // dump($page);die();
     } else {
         $page = 1;
     }
 
-    $req ='SELECT count(1) as total FROM produits WHERE status != -1';
-    $nbrTotal   = (int)($bdd->query($req)->fetchAll(PDO::FETCH_OBJ))[0]->total;
-    $nbrParPage = 5;
-    $nbrPages   = ceil( $nbrTotal/$nbrParPage );
-    $debutPage  = ( $page-1 ) * $nbrParPage;
-      
-    if($page <= 0 || $page > $nbrPages){
-        header('Location: ' . URL .'/produits/list');
-        exit;
-    }
+    // if($page <= 0 || $page > $nbrPages){
+    //     header('Location: ' . URL .'/produits/list');
+    //     exit;
+    // }
+
+    $req = '
+        SELECT count(1) as total 
+        FROM produits 
+        WHERE status != -1
+    ';
+    $nbrTotal = (int)($bdd->query($req)->fetch(PDO::FETCH_OBJ)->total);
 
     $req = '
         SELECT 
@@ -34,7 +34,7 @@
             as cat 
         FROM produits
         WHERE status != -1
-        Limit '.$debutPage.','.$nbrParPage
+        Limit ' . (($page - 1) * Pagination::$nbrParPage) . ',' . Pagination::$nbrParPage
     ;
 
     $produits = $bdd->query($req)->fetchAll(PDO::FETCH_OBJ);

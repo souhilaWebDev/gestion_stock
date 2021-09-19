@@ -90,66 +90,7 @@
             </table>
         </div>
         <!-- pagination  -->
-        <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
-            <span class="flex items-center col-span-3">
-                Showing 
-                <?php  
-                    echo $debutPage+1;
-                    echo' - ';
-                    echo ($debutPage+$nbrParPage > $nbrTotal ? $nbrTotal : $debutPage+$nbrParPage);
-                    echo" of $nbrTotal"; ?>
-            </span>
-            <span class="col-span-2"></span>
-            <!-- Pagination -->
-            <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
-                <nav aria-label="Table navigation">
-                    <ul class="inline-flex items-center">
-                    <?php if( $page > 1) {?>                    
-                        <li>
-                            <a href="?page=<?=$page-1?>" class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple" aria-label="Previous">
-                                <
-                            </a>
-                        </li>
-                    <?php }else { ?>                    
-                        <li>
-                            <a href="" disabled class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple" aria-label="Previous">
-                                <
-                            </a>
-                        </li>
-                    <?php } ?>
-                    <?php for ($i = 1; $i <= $nbrPages ; $i++) { ?>
-                        <?php if ($page != $i){ ?>
-                            <li>
-                                <a href="?page=<?=$i?>" class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                    <?=$i ?>
-                                </a>
-                            </li>
-                        <?php }else { ?>
-                                <li>
-                                    <a href="?page=<?=$i?>" class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                        <?=$i ?>
-                                    </a>
-                                </li>
-                            <?php } ?>
-                    <?php } ?>
-                    <?php if( $page < $nbrPages) {?>                    
-                        <li>
-                            <a href="?page=<?=$page+1?>" class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple" aria-label="Next">
-                                >
-                            </a>
-                        </li>
-                    
-                    <?php }else{ ?>
-                        <li>
-                            <a href=""  disabled class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple" aria-label="Next">
-                                >
-                            </a>
-                        </li>
-                    <?php } ?>
-                    </ul>
-                </nav>
-            </span>
-        </div>
+        <?php Pagination::show($nbrTotal, $page) ?>
     <?php } ?>
  <!-- modal confirm delete  -->
  <div
