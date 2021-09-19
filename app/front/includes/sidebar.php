@@ -15,7 +15,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"/> -->
 
     <link rel="stylesheet" href="<?= URL ?>/app/assets/css/tailwind.output.css" />
-
+            
+    <script type="text/javascript">
+        const $URL = "<?= URL ?>";
+    </script>
   </head>
   <body>
     <div

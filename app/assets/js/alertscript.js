@@ -12,9 +12,8 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function deleteme(id,url) {
+function deleteme(id) {
     if(confirm('Do you want really to delete this product ?')){
-        window.location.href = ''+url+'/produits/supprimer?id='+id+'';
-        return true; 
+        window.location.href = $URL+'/produits/supprimer?id='+id;
     }
 };
